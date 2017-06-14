@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.ramu.chatfirebase.EventAdmin.EventCreationActivity"
+    android:background="#ddd">
+
+  <android.support.v7.widget.Toolbar
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimary"
+      android:id="@+id/toolbar">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Event"
+          android:textColor="#fff"
+          android:layout_weight="1"
+          />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/save_icon"
+          android:text="SAVE"
+          android:textColor="#fff"
+          android:layout_marginRight="12dp"
+          />
+</LinearLayout>
+  </android.support.v7.widget.Toolbar>
+
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/toolbar"
+
+      >
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="20dp">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_margin="12dp"
+
+      >
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/event_title"
+          android:hint="Title"
+          android:background="@drawable/rectangle_event_creation"
+          android:padding="10dp"
+          android:layout_marginBottom="12dp"/>
+
+      <EditText
+          android:layout_width="match_parent"
+          android:layout_height="60dp"
+          android:id="@+id/event_description"
+          android:hint="Description"
+          android:background="@drawable/rectangle_event_creation"
+          android:padding="12dp"
+          android:layout_marginBottom="12dp"
+          />
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="120dp"
+          android:id="@+id/event_picture"
+          android:src="@drawable/default_thumb"
+          android:layout_marginBottom="12dp"/>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_marginBottom="12dp">
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:id="@+id/event_start_time"
+              android:hint="start time"
+              android:padding="10dp"
+              android:layout_marginRight="6dp"
+              android:background="@drawable/rectangle_event_creation"/>
+          <EditText
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:background="@drawable/rectangle_event_creation"
+              android:id="@+id/event_end_time"
+              android:hint="end time"
+              android:padding="10dp"
+              android:layout_marginLeft="6dp"/>
+
+      </LinearLayout>
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:layout_marginBottom="12dp">
+
+     <EditText
+         android:layout_width="match_parent"
+         android:layout_height="48dp"
+         android:layout_weight="1"
+         android:hint="location"
+         android:id="@+id/event_address"
+         android:background="@drawable/rectangle_event_creation"
+         android:padding="10dp"
+         android:layout_marginRight="12dp"/>
+     <ImageView
+         android:layout_width="48dp"
+         android:layout_height="48dp"
+         android:id="@+id/event_location_icon"
+         android:src="@drawable/marker"
+         android:padding="6dp"
+         android:background="#fff"
+         android:tint="@color/colorPrimary"/>
+ </LinearLayout>
+
+ <EditText
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:id="@+id/event_organizers"
+     android:hint="Organizers"
+     android:background="@drawable/rectangle_event_creation"
+     android:padding="10dp"
+     android:layout_marginBottom="12dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/event_guests"
+        android:hint="Guests"
+        android:background="@drawable/rectangle_event_creation"
+        android:padding="10dp"
+/>
+  </LinearLayout>
+  </LinearLayout>
+  </ScrollView>
+
+
+  </RelativeLayout>
+
+
+
+</RelativeLayout>

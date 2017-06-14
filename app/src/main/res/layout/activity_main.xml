@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat"
+            android:textColor="#fff"
+            android:textSize="16sp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/show_event"
+            android:gravity="right"
+            android:text="show"
+            android:layout_marginRight="12dp"
+            android:textColor="#fff"/>
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recylerview"
+        android:layout_below="@id/toolbar">
+    </android.support.v7.widget.RecyclerView>
+<!--
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:text="Logout"
+        android:textColor="#fff"
+        android:id="@+id/logout"/>
+        -->
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:background="@color/colorPrimary"
+       android:orientation="horizontal"
+
+       >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rambabu"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:id="@+id/homepage_name"
+            android:layout_weight="1"
+            android:padding="14dp"/>
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:gravity="right"
+           android:text="Logout"
+           android:textColor="#ddd"
+           android:id="@+id/logout"
+           android:layout_marginRight="12dp"
+/>
+   </LinearLayout>
+
+
+ <android.support.design.widget.FloatingActionButton
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentBottom="true"
+     android:layout_alignParentRight="true"
+     android:layout_marginBottom="62dp"
+     android:layout_marginRight="12dp"
+     android:id="@+id/float_button"
+     />
+</RelativeLayout>

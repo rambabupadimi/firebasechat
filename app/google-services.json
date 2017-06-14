@@ -1,0 +1,42 @@
+ {
+  "project_info": {
+    "project_number": "731630937983",
+    "firebase_url": "https://chatfirebase-bd7f4.firebaseio.com",
+    "project_id": "chatfirebase-bd7f4",
+    "storage_bucket": "chatfirebase-bd7f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731630937983:android:8e95dd4d6759e47c",
+        "android_client_info": {
+          "package_name": "com.example.ramu.chatfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731630937983-6fvgq480k48lvefg876soiap3ladlmca.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEqPsgxqN86Hf0d3patjDlAQXa8dW4_Vw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
