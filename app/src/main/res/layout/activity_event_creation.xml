@@ -11,7 +11,7 @@
   <android.support.v7.widget.Toolbar
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:background="@color/colorPrimary"
+      android:background="@drawable/gradient_color"
       android:id="@+id/toolbar">
 <LinearLayout
     android:layout_width="match_parent"
@@ -94,6 +94,7 @@
               android:layout_height="wrap_content"
               android:layout_weight="1"
               android:id="@+id/event_start_time"
+              android:editable="false"
               android:hint="start time"
               android:padding="10dp"
               android:layout_marginRight="6dp"
@@ -105,6 +106,8 @@
               android:background="@drawable/rectangle_event_creation"
               android:id="@+id/event_end_time"
               android:hint="end time"
+              android:editable="false"
+
               android:padding="10dp"
               android:layout_marginLeft="6dp"/>
 

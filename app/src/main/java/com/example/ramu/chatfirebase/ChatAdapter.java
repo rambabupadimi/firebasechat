@@ -2,6 +2,8 @@ package com.example.ramu.chatfirebase;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseBooleanArray;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
 
     private List<ChatMessage> chatMessageList;
     String senderId;
+    private SparseBooleanArray selectedItems;
+    private static int currentSelectedIndex = -1;
+
+    private ChatListAdapterListener listener;
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView messageLeft,messageRight,messageLeftTime,messageRightTime;
         LinearLayout leftLayout,rightLayout;
@@ -29,14 +36,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
             messageLeftTime =  (TextView) view.findViewById(R.id.send_time_left);
             messageRight =  (TextView) view.findViewById(R.id.message_right);
             messageRightTime =  (TextView) view.findViewById(R.id.send_time_right);
-
         }
     }
 
 
-    public ChatAdapter(List<ChatMessage> chatMessageList,String senderId) {
+    public ChatAdapter(List<ChatMessage> chatMessageList,String senderId,ChatListAdapterListener listener) {
         this.chatMessageList = chatMessageList;
         this.senderId = senderId;
+        this.listener = listener;
+        selectedItems       =   new SparseBooleanArray();
+
     }
 
     @Override
@@ -48,7 +57,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         ChatMessage chatMessage =chatMessageList.get(position);
         if(chatMessage.getSenderId().toString().equalsIgnoreCase(senderId))
@@ -59,7 +68,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
             holder.messageRight.setText(chatMessage.getMessage());
             holder.messageRightTime.setText(chatMessage.getSent_time());
         }
-        else
+         else
         {
             holder.rightLayout.setVisibility(View.GONE);
             holder.leftLayout.setVisibility(View.VISIBLE);
@@ -67,16 +76,75 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.MyViewHolder> 
             holder.messageLeftTime.setText(chatMessage.getSent_time());
         }
 
+        holder.itemView.setActivated(selectedItems.get(position, false));
 
-    }
-    public void reload(ChatMessage chatMessage)
-    {
-        chatMessageList.add(chatMessage);
-        notifyDataSetChanged();
+        holder.rightLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onMessageRowClicked(position);
+            }
+        });
+
+        holder.rightLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                listener.onRowLongClicked(position);
+                view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                return true;
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return (chatMessageList!=null)?chatMessageList.size():0;
     }
+
+    public void toggleSelection(int pos) {
+        currentSelectedIndex = pos;
+        if (selectedItems.get(pos, false)) {
+            selectedItems.delete(pos);
+
+        } else {
+            selectedItems.put(pos, true);
+        }
+
+        notifyItemChanged(pos);
+    }
+
+
+    private void resetCurrentIndex() {
+        currentSelectedIndex = -1;
+    }
+
+
+    public SparseBooleanArray getSelectedItemsListData()
+    {
+        return selectedItems;
+    }
+
+    public void clearSelections() {
+        //  reverseAllAnimations = true;
+        selectedItems.clear();
+
+        notifyDataSetChanged();
+    }
+
+    public int getSelectedItemCount() {
+        return selectedItems.size();
+    }
+
+
+    public interface ChatListAdapterListener {
+        void onIconClicked(int position);
+
+        void onIconImportantClicked(int position);
+
+        void onMessageRowClicked(int position);
+
+        void onRowLongClicked(int position);
+    }
+
+
 }

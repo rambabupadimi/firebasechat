@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ramu.chatfirebase">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".ChatApplication"
         android:allowBackup="true"
@@ -10,6 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
         <activity android:name=".EventAdmin.EventsDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +42,10 @@
 
         <activity android:name=".GroupChatActivity" />
         <activity android:name=".EventAdmin.EventCreationActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".EventUser.EventUserDisplay" />
+        <activity android:name=".EventAdmin.EventDisplayDetailsActivity" />
+        <activity android:name=".EventAdmin.EventProfileEdit"></activity>
     </application>
 
 </manifest>

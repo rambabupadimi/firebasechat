@@ -8,7 +8,7 @@
     <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="6dp"
+    app:cardElevation="2dp"
     android:layout_margin="6dp"
 
 >
@@ -18,52 +18,60 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ImageView
+        <com.example.ramu.chatfirebase.EventAdmin.ResizableImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/default_thumb"/>
+            android:layout_height="wrap_content"
+            android:src="@drawable/default_thumb"
+            android:id="@+id/event_adapter_poster"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="0.6dp"
             android:background="#f5f5f5"></View>
 
-       <LinearLayout
-           android:layout_width="48dp"
-           android:layout_height="48dp"
-           android:layout_gravity="right"
-           android:layout_marginTop="-48dp"
-           android:gravity="center"
-           android:background="#ffffff"
-           >
-
-        <ImageView
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:src="@drawable/qrcode"
-            android:id="@+id/qrcode_icon"
-            />
-       </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"
             android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
          <TextView
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:text="Firebase Cloud Functions"/>
+             android:text="Firebase Cloud Functions"
+             android:id="@+id/event_adapter_title"
+             android:textSize="16sp"
+             android:layout_weight="1"
+             android:textStyle="bold"
+             android:textColor="#000"/>
 
+         <Button
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             android:text="12"
+             android:id="@+id/scanned_users_count"
+             android:textStyle="bold"
+             android:background="#f5f5f5"/>
+        </LinearLayout>
           <TextView
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:maxLines="3"
               android:layout_marginTop="6dp"
-              android:textSize="10sp"
+              android:textSize="12sp"
+              android:id="@+id/event_adapter_description"
               android:text="Cloud Functions for Firebase lets you automatically run backend code in response to events triggered by Firebase features and HTTPS requests. Your code is stored in Google’s cloud and runs in a managed environment. There's no need to manage and scale your own servers."/>
         </LinearLayout>
 
-       <LinearLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:background="#f5f5f5"></View>
+
+        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="horizontal"
@@ -74,26 +82,30 @@
               android:layout_height="wrap_content"
               android:layout_weight="1"
               android:padding="12dp"
-              android:background="#00A24B">
+
+>
               <TextView
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   android:text="Google and Firebase"
-                  android:textColor="#fff"
+                  android:id="@+id/event_adapter_organizers"
+                  android:singleLine="true"
+                  android:textSize="16sp"
    />
           </LinearLayout>
 
            <LinearLayout
-               android:layout_width="match_parent"
+               android:layout_width="140dp"
                android:layout_height="wrap_content"
-               android:layout_weight="2"
-               android:background="#FFE002"
-               android:padding="12dp">
+               android:padding="12dp"
+                >
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#000000"
-                    android:text=" 12 Jan 2017"/>
+                    android:text=" 12 Jan 2017"
+                    android:textStyle="bold"
+                    android:id="@+id/event_adapter_start_date"/>
            </LinearLayout>
 
        </LinearLayout>

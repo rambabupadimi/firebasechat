@@ -1,18 +1,37 @@
 package com.example.ramu.chatfirebase.EventAdmin;
 
+import java.io.Serializable;
+
 /**
  * Created by Ramu on 07-06-2017.
  */
 
-public class CreateEvent {
+public class CreateEvent implements Serializable {
     String  eventTitle,
             eventDescription,
             eventStartDate,
             eventEndDate,
             eventOrganizers,
             eventGuests,
-            eventLocation;
+            eventLocation,
+            eventPosterURL,
+    eventUserId;
 
+    public String getEventUserId() {
+        return eventUserId;
+    }
+
+    public void setEventUserId(String eventUserId) {
+        this.eventUserId = eventUserId;
+    }
+
+    public String getEventPosterURL() {
+        return eventPosterURL;
+    }
+
+    public void setEventPosterURL(String eventPosterURL) {
+        this.eventPosterURL = eventPosterURL;
+    }
 
     public String getEventTitle() {
         return eventTitle;
